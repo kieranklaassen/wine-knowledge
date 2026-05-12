@@ -1,0 +1,14 @@
+{
+  "name": "wine-knowledge",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build:map-data": "node scripts/build-map-data.mjs",
+    "check:map-data": "node scripts/build-map-data.mjs --check",
+    "verify:map": "node scripts/verify-map-app.mjs",
+    "test:browser": "playwright test scripts/browser-map-check.spec.js --reporter=line"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

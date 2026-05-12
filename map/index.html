@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wine Knowledge Atlas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="atlas-shell">
+      <section class="map-stage" aria-label="Interactive wine region map">
+        <div id="map" class="world-map" aria-label="World map with wine region markers">
+          <svg id="world-svg" class="world-svg" role="img" aria-label="Interactive world map"></svg>
+        </div>
+        <div class="map-overlay top-left">
+          <p class="eyebrow">Wine Knowledge Atlas</p>
+          <h1>Interactive taxonomy map</h1>
+          <p>
+            A map-led explorer for regions, grapes, wine styles, sensory language, structure, and terroir.
+          </p>
+        </div>
+        <div class="map-overlay bottom-strip" aria-live="polite">
+          <span><strong id="visible-regions">0</strong> visible regions</span>
+          <span><strong id="active-dataset">Regions</strong> mode</span>
+          <span><strong id="selected-state-label">All states</strong></span>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-label="Atlas controls">
+        <div class="panel-section search-section">
+          <label for="search-input">Search the taxonomy</label>
+          <input id="search-input" type="search" placeholder="Napa, Syrah, limestone, fruit..." autocomplete="off" />
+        </div>
+
+        <div class="panel-section">
+          <p class="section-label">Explore</p>
+          <div class="mode-grid" role="tablist" aria-label="Dataset modes">
+            <button class="mode-button active" type="button" data-mode="regions">Regions</button>
+            <button class="mode-button" type="button" data-mode="varieties">Varieties</button>
+            <button class="mode-button" type="button" data-mode="flavors">Flavors</button>
+            <button class="mode-button" type="button" data-mode="styles">Styles</button>
+            <button class="mode-button" type="button" data-mode="terroir">Terroir</button>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <label for="state-filter">State spotlight</label>
+          <select id="state-filter">
+            <option value="">All mapped states</option>
+          </select>
+        </div>
+
+        <div class="panel-section stats-grid" id="stats-grid" aria-label="Repository data totals"></div>
+
+        <div class="panel-section">
+          <div class="section-row">
+            <p class="section-label">Live results</p>
+            <button id="surprise-button" class="ghost-button" type="button">Surprise flight</button>
+          </div>
+          <div id="result-list" class="result-list"></div>
+        </div>
+      </aside>
+
+      <aside class="detail-panel" aria-label="Selected taxonomy detail">
+        <div id="detail-content" class="detail-content"></div>
+      </aside>
+
+      <section class="knowledge-dock" aria-label="Knowledge taxonomies">
+        <article>
+          <div class="section-row">
+            <h2>Flavor constellation</h2>
+            <span id="flavor-count"></span>
+          </div>
+          <div id="flavor-cloud" class="flavor-cloud"></div>
+        </article>
+
+        <article>
+          <div class="section-row">
+            <h2>Grape library</h2>
+            <span id="variety-count"></span>
+          </div>
+          <div id="variety-strip" class="variety-strip"></div>
+        </article>
+
+        <article>
+          <div class="section-row">
+            <h2>Terroir and structure</h2>
+            <span id="terroir-count"></span>
+          </div>
+          <div id="terroir-grid" class="terroir-grid"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./data/wine-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

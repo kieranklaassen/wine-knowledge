@@ -27,3 +27,34 @@ This repository began as a Vinebase project and is now maintained as a personal,
 #### Terroir
 - Soil types
 - Soil textures
+
+## Interactive Atlas
+
+The repository includes a static interactive atlas in `map/` that turns the CSV taxonomies into a map-led explorer for wine regions, grape varieties, styles, flavors, structure, and terroir. It uses local country geometry from `map/data/world-countries.geo.json`, sourced from the public-domain `johan/world.geo.json` dataset.
+
+When deployed from `main`, the hosted app is available through GitHub Pages at:
+
+`https://kieranklaassen.github.io/wine-knowledge/`
+
+To install the browser-check tooling, rebuild, and verify the atlas:
+
+```bash
+npm install
+npm run build:map-data
+npm run check:map-data
+npm run verify:map
+```
+
+To view it locally:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/map/`.
+
+With the local server still running, the browser interaction check can be run with:
+
+```bash
+npm run test:browser
+```
